@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="560.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.views.TODO">
+<AnchorPane prefHeight="560.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.attilene.controllers.TodoController">
    <children>
       <Label layoutX="254.0" layoutY="36.0" text="Список задач" AnchorPane.leftAnchor="254.0" AnchorPane.topAnchor="36.0">
          <font>

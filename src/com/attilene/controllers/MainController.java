@@ -1,8 +1,8 @@
-package sample.controllers;
+package com.attilene.controllers;
 
+import com.attilene.Main;
+import com.attilene.models.data.User;
 import javafx.fxml.FXML;
-import sample.Main;
-import sample.models.data.User;
 
 public class MainController {
     private Main main;
@@ -10,8 +10,7 @@ public class MainController {
     @FXML
     private void handleEnterAction() {
         User user = main.showEnterPage();
-//        if (user.getLogin() != null) { main.showTranslatorPage(person); }
-        if (user.getLogin() != null) { System.out.println("kek"); }
+        if (user.getLogin() != null) { main.showTODOPage(user); }
     }
 
     @FXML

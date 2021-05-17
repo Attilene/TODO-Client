@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="296.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AuthorisationController">
+<AnchorPane prefHeight="296.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.attilene.controllers.AuthorisationController">
     <children>
         <Label layoutX="185.0" layoutY="33.0" text="Вход">
             <font>
                 <Font name="System Bold" size="36.0" />
             </font>
         </Label>
-        <GridPane layoutX="20.0" layoutY="100.0" prefHeight="85.0" prefWidth="360.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+        <GridPane layoutX="20.0" layoutY="100.0" prefHeight="86.0" prefWidth="415.0" AnchorPane.leftAnchor="20.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="10.0" prefWidth="96.2" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="412.0" minWidth="10.0" prefWidth="319.8" />

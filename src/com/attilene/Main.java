@@ -1,5 +1,7 @@
-package sample;
+package com.attilene;
 
+import com.attilene.controllers.TodoController;
+import com.attilene.models.data.User;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,10 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import sample.controllers.AuthorisationController;
-import sample.controllers.MainController;
-import sample.controllers.RegistrationController;
-import sample.models.data.User;
+import com.attilene.controllers.AuthorisationController;
+import com.attilene.controllers.MainController;
+import com.attilene.controllers.RegistrationController;
 
 import java.io.IOException;
 
@@ -78,6 +79,24 @@ public class Main extends Application {
             dialStage.setScene(scene);
             RegistrationController controller = loader.getController();
             controller.setDialStage(dialStage);
+            dialStage.showAndWait();
+        } catch (IOException e) { e.printStackTrace(); }
+    }
+
+    @FXML
+    public void showTODOPage(User user) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("views/TODO.fxml"));
+            AnchorPane page = loader.load();
+            Stage dialStage = new Stage();
+            dialStage.setTitle("Главная страница");
+            dialStage.initModality(Modality.WINDOW_MODAL);
+            dialStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialStage.setScene(scene);
+            TodoController controller = loader.getController();
+//            controller.setDialStage(dialStage);
             dialStage.showAndWait();
         } catch (IOException e) { e.printStackTrace(); }
     }

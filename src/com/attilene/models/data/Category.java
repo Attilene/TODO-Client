@@ -1,4 +1,4 @@
-package sample.models.data;
+package com.attilene.models.data;
 
 import com.google.gson.Gson;
 

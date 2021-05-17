@@ -1,4 +1,4 @@
-package sample.controllers;
+package com.attilene.controllers;
 
 public class CategoryController {
 }

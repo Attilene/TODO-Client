@@ -1,4 +1,4 @@
-package sample.utils;
+package com.attilene.utils;
 
 import java.util.regex.Pattern;
 
