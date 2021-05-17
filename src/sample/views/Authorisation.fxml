@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="296.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AuthorisationController">
+    <children>
+        <Label layoutX="185.0" layoutY="33.0" text="Вход">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <GridPane layoutX="20.0" layoutY="100.0" prefHeight="85.0" prefWidth="360.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="10.0" prefWidth="96.2" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="412.0" minWidth="10.0" prefWidth="319.8" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="111.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <TextField fx:id="userLogEmailField" promptText="Введите логин/email" GridPane.columnIndex="1" />
+                <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Логин/Email:  " />
+                <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Пароль:  " GridPane.rowIndex="1" />
+                <PasswordField fx:id="passwordField" promptText="Введите пароль" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="visiblePasswordField" promptText="Введите пароль" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            </children>
+        </GridPane>
+        <HBox layoutX="80.0" layoutY="236.0" prefHeight="38.0" prefWidth="297.0" spacing="30.0" AnchorPane.bottomAnchor="21.6" AnchorPane.leftAnchor="80.0">
+            <children>
+                <Button mnemonicParsing="false" onAction="#handleEnter" prefHeight="35.0" prefWidth="132.0" text="Вход">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></Button>
+                <Button mnemonicParsing="false" onAction="#handleCancel" prefHeight="35.0" prefWidth="132.0" text="Отмена">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></Button>
+            </children>
+        </HBox>
+        <CheckBox fx:id="passwordToggle" layoutX="170.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleToggleVisiblePassword" text="Показать пароль" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="200.0">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </CheckBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="274.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.CategoryController">
+    <children>
+        <Label layoutX="174.0" layoutY="48.0" text="Категория" AnchorPane.leftAnchor="174.0" AnchorPane.topAnchor="48.0">
+            <font>
+                <Font name="SansSerif Bold" size="36.0" />
+            </font>
+        </Label>
+        <GridPane layoutX="20.0" layoutY="107.0" prefHeight="71.0" prefWidth="491.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0" minWidth="10.0" prefWidth="104.60000762939453" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="10.0" prefWidth="386.5999923706055" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="85.4" minHeight="10.0" prefHeight="38.400000000000006" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="872.0" text="* Имя категории: " />
+                <TextField promptText="Введите имя категории" GridPane.columnIndex="1" />
+            </children>
+        </GridPane>
+        <HBox layoutX="117.0" layoutY="194.99999999999997" prefHeight="38.0" prefWidth="297.0" spacing="30.0" AnchorPane.bottomAnchor="40.60000000000002">
+            <children>
+                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" text="Создать">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></Button>
+                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" text="Отмена">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></Button>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
