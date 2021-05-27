@@ -1,15 +1,18 @@
-package com.attilene.utils;
+package com.attilene.utils.http;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-public class HttpClass {
+public final class HttpClass {
+    private HttpClass() {}
+
     public static String sendGET(String urlString) {
         try {
             URL url = new URL(urlString);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("Accept", "application/json");
             con.setRequestMethod("GET");
 
             if (con.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -76,7 +79,7 @@ public class HttpClass {
                 return null;
             }
         } catch (Exception e) {
-            return "500";
+            return null;
         }
     }
 }

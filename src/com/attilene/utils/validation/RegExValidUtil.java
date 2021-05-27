@@ -1,4 +1,4 @@
-package com.attilene.utils;
+package com.attilene.utils.validation;
 
 import java.util.regex.Pattern;
 

@@ -2,10 +2,10 @@ package com.attilene.controllers;
 
 import com.attilene.models.data.User;
 import com.attilene.models.fields.RegistrationEditModel;
-import com.attilene.utils.AlertsUtil;
-import com.attilene.utils.RestAPI;
+import com.attilene.utils.alerts.AlertsUtil;
+import com.attilene.utils.http.api.UserAPI;
 import javafx.fxml.FXML;
-import com.attilene.utils.ValidUtil;
+import com.attilene.utils.validation.ValidUtil;
 
 public class RegistrationController extends RegistrationEditModel {
     @FXML
@@ -25,15 +25,14 @@ public class RegistrationController extends RegistrationEditModel {
         if (ValidUtil.isInputValidRegistrationEdit(this, dialStage)) {
             if (ValidUtil.isInputValidLength(this, dialStage)) {
                 if (ValidUtil.isRegExValidRegistrationEdit(this, dialStage)) {
-                    RestAPI restAPI = new RestAPI();
-                    User new_user = restAPI.userSignUpIn(
+                    UserAPI userAPI = new UserAPI();
+                    User new_user = userAPI.userSignUpIn(
                             new User(
                                     loginField.getText(),
                                     emailField.getText(),
                                     passwordField.getText()),
                             "/users"
                     );
-
                     if (new_user != null) {
                         if (new_user.getId() == null) {
                             AlertsUtil.showInternalServerErrorAlert(dialStage);

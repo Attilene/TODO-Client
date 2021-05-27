@@ -22,16 +22,16 @@
             </rowConstraints>
             <children>
                 <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="872.0" text="* Имя категории: " />
-                <TextField promptText="Введите имя категории" GridPane.columnIndex="1" />
+                <TextField fx:id="categoryNameField" promptText="Введите имя категории" GridPane.columnIndex="1" />
             </children>
         </GridPane>
         <HBox layoutX="117.0" layoutY="194.99999999999997" prefHeight="38.0" prefWidth="297.0" spacing="30.0" AnchorPane.bottomAnchor="40.60000000000002">
             <children>
-                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" text="Создать">
+                <Button mnemonicParsing="false" onAction="#handleCreateAndUpdate" prefHeight="35.0" prefWidth="132.0" text="Создать/Обновить">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>
-                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" text="Отмена">
+                <Button mnemonicParsing="false" onAction="#handleCancel" prefHeight="35.0" prefWidth="132.0" text="Отмена">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>

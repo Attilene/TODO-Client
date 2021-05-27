@@ -1,7 +1,8 @@
-package com.attilene.utils;
+package com.attilene.utils.validation;
 
 import com.attilene.models.fields.EnterModel;
 import com.attilene.models.fields.RegistrationEditModel;
+import com.attilene.utils.alerts.AlertsUtil;
 import javafx.stage.Stage;
 
 public final class ValidUtil {

@@ -1,6 +1,7 @@
 package com.attilene;
 
-import com.attilene.controllers.TodoController;
+import com.attilene.controllers.*;
+import com.attilene.models.data.Category;
 import com.attilene.models.data.Task;
 import com.attilene.models.data.User;
 import javafx.application.Application;
@@ -10,9 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import com.attilene.controllers.AuthorisationController;
-import com.attilene.controllers.MainController;
-import com.attilene.controllers.RegistrationController;
 
 import java.io.IOException;
 import java.util.List;
@@ -86,7 +84,7 @@ public class Main extends Application {
     }
 
     @FXML
-    public void showTODOPage(User user, List<Task> tasks) {
+    public void showTODOPage(User user, List<Category> categories) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("views/TODO.fxml"));
@@ -100,8 +98,48 @@ public class Main extends Application {
             TodoController controller = loader.getController();
             controller.setDialStage(dialStage);
             controller.setUser(user);
-            controller.setTasks(tasks);
-            controller.showTasksData();
+            controller.setCategories(categories);
+            controller.showCategoriesData();
+            controller.setMain(this);
+            dialStage.showAndWait();
+        } catch (IOException e) { e.printStackTrace(); }
+    }
+
+    @FXML
+    public void showCategoryPage(Category category, Stage stage, String url, String method) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("views/Category.fxml"));
+            AnchorPane page = loader.load();
+            Stage dialStage = new Stage();
+            dialStage.setTitle("Добавление/Изменение категории");
+            dialStage.initModality(Modality.WINDOW_MODAL);
+            dialStage.initOwner(stage);
+            Scene scene = new Scene(page);
+            dialStage.setScene(scene);
+            CategoryController controller = loader.getController();
+            controller.setDialStage(dialStage);
+            controller.setCategory(category);
+            controller.setUrl(url);
+            controller.setMethod(method);
+            dialStage.showAndWait();
+        } catch (IOException e) { e.printStackTrace(); }
+    }
+
+    @FXML
+    public void showTaskPage(Task task, Stage stage) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("views/Task.fxml"));
+            AnchorPane page = loader.load();
+            Stage dialStage = new Stage();
+            dialStage.setTitle("Добавление/Изменение задачи");
+            dialStage.initModality(Modality.WINDOW_MODAL);
+            dialStage.initOwner(stage);
+            Scene scene = new Scene(page);
+            dialStage.setScene(scene);
+            TaskController controller = loader.getController();
+            controller.setDialStage(dialStage);
             dialStage.showAndWait();
         } catch (IOException e) { e.printStackTrace(); }
     }

@@ -1,4 +1,4 @@
-package com.attilene.utils;
+package com.attilene.utils.alerts;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -84,23 +84,32 @@ public final class AlertsUtil {
         alert.showAndWait();
     }
 
-    public static void showUserNotExistAlert(Stage stage) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+//    public static void showUserNotExistAlert(Stage stage) {
+//        Alert alert = new Alert(Alert.AlertType.ERROR);
+//        alert.initOwner(stage);
+//        alert.setTitle("Пользователь не существует");
+//        alert.setHeaderText("Пользователь с такой электронной почтой не существует!");
+//        alert.setContentText("Введите корректную почту");
+//        alert.showAndWait();
+//    }
+
+    public static void showNotSelectedCategory(Stage stage) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.initOwner(stage);
-        alert.setTitle("Пользователь не существует");
-        alert.setHeaderText("Пользователь с такой электронной почтой не существует!");
-        alert.setContentText("Введите корректную почту");
+        alert.setTitle("Ничего не выбрано!");
+        alert.setHeaderText("Категория задач не выбрана!");
+        alert.setContentText("Пожалуйста, выберите категорию!");
         alert.showAndWait();
     }
 
-//    public static void showNotSelectedHistory(Stage stage) {
-//        Alert alert = new Alert(Alert.AlertType.WARNING);
-//        alert.initOwner(stage);
-//        alert.setTitle("Ничего не выбрано!");
-//        alert.setHeaderText("История перевода не выбрана!");
-//        alert.setContentText("Пожалуйста, выберите историю!");
-//        alert.showAndWait();
-//    }
+    public static void showNotSelectedTask(Stage stage) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.initOwner(stage);
+        alert.setTitle("Ничего не выбрано!");
+        alert.setHeaderText("Задача не выбрана!");
+        alert.setContentText("Пожалуйста, выберите задачу!");
+        alert.showAndWait();
+    }
 
     public static void showInternalServerErrorAlert(Stage stage) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -110,13 +119,4 @@ public final class AlertsUtil {
         alert.setContentText("Свяжитесь с администратором или повторите попытку позже");
         alert.showAndWait();
     }
-
-//    public static void showFailedTranslateAlert(Stage stage) {
-//        Alert alert = new Alert(Alert.AlertType.ERROR);
-//        alert.initOwner(stage);
-//        alert.setTitle("Перевод не удался");
-//        alert.setHeaderText("Введите правильную строку для перевода!");
-//        alert.setContentText("Строка не должна быть пустой.\nЯзык строки должен соответствовать переключателям");
-//        alert.showAndWait();
-//    }
 }
