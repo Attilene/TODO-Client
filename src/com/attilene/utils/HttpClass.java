@@ -26,7 +26,7 @@ public class HttpClass {
                 return null;
             }
         } catch (Exception e) {
-            return null;
+            return "500";
         }
     }
 
@@ -59,7 +59,7 @@ public class HttpClass {
                 return null;
             }
         } catch (Exception e) {
-            return null;
+            return "500";
         }
     }
 
@@ -76,7 +76,7 @@ public class HttpClass {
                 return null;
             }
         } catch (Exception e) {
-            return null;
+            return "500";
         }
     }
 }

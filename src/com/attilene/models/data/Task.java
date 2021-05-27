@@ -1,36 +1,22 @@
 package com.attilene.models.data;
 
-import com.google.gson.Gson;
-
+import java.io.Serializable;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
-public class Task implements APIModel {
+public class Task implements Serializable {
     private Long id;
-    private String title;
-    private String text;
+    private String name;
+    private String description;
     private Boolean complete;
+    private Date operation_date;
 
     public Task() {}
 
-    public Task(String title, String text, Boolean complete) {
-        this.title = title;
-        this.text = text;
+    public Task(String name, String description, Boolean complete, Date operation_date) {
+        this.name = name;
+        this.description = description;
         this.complete = complete;
-    }
-
-    @Override
-    public String toJson() {
-        Map<String, String> map = new HashMap<>() {{
-            put("name", title);
-            put("description", text);
-            put("operation_date", new Date().toString());
-            put("complete", complete.toString());
-        }};
-
-        Gson gson = new Gson();
-        return gson.toJson(map);
+        this.operation_date = operation_date;
     }
 
     public Long getId() {
@@ -41,20 +27,20 @@ public class Task implements APIModel {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getText() {
-        return text;
+    public String getDescription() {
+        return description;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Boolean getComplete() {
@@ -65,13 +51,22 @@ public class Task implements APIModel {
         this.complete = complete;
     }
 
+    public Date getOperation_date() {
+        return operation_date;
+    }
+
+    public void setOperation_date(Date operation_date) {
+        this.operation_date = operation_date;
+    }
+
     @Override
     public String toString() {
         return "Task{" +
                 "id=" + id +
-                ", title='" + title + '\'' +
-                ", text='" + text + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
                 ", complete=" + complete +
+                ", operation_date=" + operation_date +
                 '}';
     }
 }

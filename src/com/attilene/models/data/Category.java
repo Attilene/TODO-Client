@@ -1,11 +1,8 @@
 package com.attilene.models.data;
 
-import com.google.gson.Gson;
+import java.io.Serializable;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class Category implements APIModel {
+public class Category implements Serializable {
     private Long id;
     private String name;
 
@@ -13,16 +10,6 @@ public class Category implements APIModel {
 
     public Category(String name) {
         this.name = name;
-    }
-
-    @Override
-    public String toJson() {
-        Map<String, String> map = new HashMap<>() {{
-            put("name", name);
-        }};
-
-        Gson gson = new Gson();
-        return gson.toJson(map);
     }
 
     public Long getId() {

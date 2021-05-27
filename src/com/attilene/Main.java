@@ -1,6 +1,7 @@
 package com.attilene;
 
 import com.attilene.controllers.TodoController;
+import com.attilene.models.data.Task;
 import com.attilene.models.data.User;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import com.attilene.controllers.MainController;
 import com.attilene.controllers.RegistrationController;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Main extends Application {
     private Stage primaryStage;
@@ -84,7 +86,7 @@ public class Main extends Application {
     }
 
     @FXML
-    public void showTODOPage(User user) {
+    public void showTODOPage(User user, List<Task> tasks) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("views/TODO.fxml"));
@@ -96,7 +98,10 @@ public class Main extends Application {
             Scene scene = new Scene(page);
             dialStage.setScene(scene);
             TodoController controller = loader.getController();
-//            controller.setDialStage(dialStage);
+            controller.setDialStage(dialStage);
+            controller.setUser(user);
+            controller.setTasks(tasks);
+            controller.showTasksData();
             dialStage.showAndWait();
         } catch (IOException e) { e.printStackTrace(); }
     }

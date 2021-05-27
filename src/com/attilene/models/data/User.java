@@ -1,11 +1,8 @@
 package com.attilene.models.data;
 
-import com.google.gson.Gson;
+import java.io.Serializable;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class User implements APIModel {
+public class User implements Serializable {
     private Long id;
     private String login;
     private String email;
@@ -17,18 +14,6 @@ public class User implements APIModel {
         this.login = login;
         this.email = email;
         this.password = password;
-    }
-
-    @Override
-    public String toJson() {
-        Map<String, String> map = new HashMap<>() {{
-            put("login", login);
-            put("email", email);
-            put("password", password);
-        }};
-
-        Gson gson = new Gson();
-        return gson.toJson(map);
     }
 
     public Long getId() {

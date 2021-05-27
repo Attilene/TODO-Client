@@ -34,9 +34,14 @@ public class RegistrationController extends RegistrationEditModel {
                             "/users"
                     );
 
-                    if (new_user != null) dialStage.close();
+                    if (new_user != null) {
+                        if (new_user.getId() == null) {
+                            AlertsUtil.showInternalServerErrorAlert(dialStage);
+                        }
+                        else
+                            dialStage.close();
+                    }
                     else AlertsUtil.showUserExistAlert(dialStage);
-                    System.out.println(new_user);
                 }
             }
         }

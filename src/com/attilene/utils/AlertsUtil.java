@@ -102,14 +102,14 @@ public final class AlertsUtil {
 //        alert.showAndWait();
 //    }
 
-//    public static void showInternalServerErrorAlert(Stage stage) {
-//        Alert alert = new Alert(Alert.AlertType.ERROR);
-//        alert.initOwner(stage);
-//        alert.setTitle("Ошибка сервера");
-//        alert.setHeaderText("Сервер временно недоступен!");
-//        alert.setContentText("Свяжитесь с администратором или повторите попытку позже");
-//        alert.showAndWait();
-//    }
+    public static void showInternalServerErrorAlert(Stage stage) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.initOwner(stage);
+        alert.setTitle("Ошибка сервера");
+        alert.setHeaderText("Сервер временно недоступен!");
+        alert.setContentText("Свяжитесь с администратором или повторите попытку позже");
+        alert.showAndWait();
+    }
 
 //    public static void showFailedTranslateAlert(Stage stage) {
 //        Alert alert = new Alert(Alert.AlertType.ERROR);

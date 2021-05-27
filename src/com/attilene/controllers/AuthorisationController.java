@@ -31,10 +31,14 @@ public class AuthorisationController extends EnterModel {
                                 passwordField.getText()),
                         "/authorization"
                 );
-
                 if (new_user != null) {
-                    user = new_user;
-                    dialStage.close();
+                    if (new_user.getId() == null) {
+                        AlertsUtil.showInternalServerErrorAlert(dialStage);
+                    }
+                    else {
+                        user = new_user;
+                        dialStage.close();
+                    }
                 }
                 else AlertsUtil.showNoValidEnterAlert(dialStage);
             }

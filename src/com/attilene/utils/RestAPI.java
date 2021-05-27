@@ -1,13 +1,17 @@
 package com.attilene.utils;
 
+import com.attilene.models.data.Task;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.attilene.models.data.User;
 
+import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+import java.util.Objects;
 
 public class RestAPI {
     private static final String SERVER_URL = "http://localhost:10000";
@@ -45,6 +49,10 @@ public class RestAPI {
         if (response == null) {
             return null;
         }
+        if (response.equals("500")) {
+            return new User();
+        }
+        System.out.println(response);
 //        JsonArray jsonResult = JsonParser.parseString(Objects.requireNonNull(response)).getAsJsonArray();
 //        JsonObject curUser = jsonResult.get(0).getAsJsonObject();
 
@@ -57,6 +65,31 @@ public class RestAPI {
         User newUser = new User(login, email, password);
         newUser.setId(id);
         return newUser;
+    }
+
+    public List<Task> getTasksByUser(String url) {
+        List<Task> result = new ArrayList<>();
+        String response = HttpClass.sendGET(SERVER_URL + url);
+
+        if (response == null) {
+            return null;
+        }
+        JsonArray jsonResult = JsonParser.parseString(Objects.requireNonNull(response)).getAsJsonArray();
+
+        for (int i = 0; i < jsonResult.size(); i++) {
+            JsonObject curUser = jsonResult.get(i).getAsJsonObject();
+
+            Long id = curUser.get("id").getAsLong();
+            String name = curUser.get("name").getAsString();
+            String description = curUser.get("description").getAsString();
+            String operation_date = curUser.get("operation_date").getAsString();
+            Boolean complete = curUser.get("complete").getAsBoolean();
+
+            Task task = new Task(name, description, complete, Date.from(Instant.parse(operation_date)));
+            task.setId(id);
+            result.add(task);
+        }
+        return result;
     }
 
 //    private User getUser(String buffer) {
