@@ -1,22 +1,19 @@
 package com.attilene.models.data;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Task implements Serializable {
     private Long id;
     private String name;
     private String description;
     private Boolean complete;
-    private Date operation_date;
 
     public Task() {}
 
-    public Task(String name, String description, Boolean complete, Date operation_date) {
+    public Task(String name, String description, Boolean complete) {
         this.name = name;
         this.description = description;
         this.complete = complete;
-        this.operation_date = operation_date;
     }
 
     public Long getId() {
@@ -51,14 +48,6 @@ public class Task implements Serializable {
         this.complete = complete;
     }
 
-    public Date getOperation_date() {
-        return operation_date;
-    }
-
-    public void setOperation_date(Date operation_date) {
-        this.operation_date = operation_date;
-    }
-
     @Override
     public String toString() {
         return "Task{" +
@@ -66,7 +55,6 @@ public class Task implements Serializable {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", complete=" + complete +
-                ", operation_date=" + operation_date +
                 '}';
     }
 }

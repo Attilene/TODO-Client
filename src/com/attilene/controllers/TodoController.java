@@ -48,12 +48,45 @@ public class TodoController {
 
     @FXML
     private void handleCreateTask() {
-
+        int selectedIndex = categoryTableView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            main.showTaskPage(
+                    null,
+                    dialStage,
+                    "/users/" + user.getId() + "/categories/" +
+                            categoryTableView.getItems().get(selectedIndex).getId() + "/tasks",
+                    "POST");
+            TaskAPI taskAPI = new TaskAPI();
+            this.setTasks(taskAPI.getTasksByUserAndCategory(
+                    "/users/" + user.getId() + "/categories/" +
+                            categoryTableView.getItems().get(selectedIndex).getId() + "/tasks"));
+            this.showTasksData();
+        }
+        else { AlertsUtil.showNotSelectedCategory(dialStage); }
     }
 
     @FXML
     private void handleUpdateTask() {
-
+        int selectedIndex = categoryTableView.getSelectionModel().getSelectedIndex();
+        int selectedIndex2 = taskTableView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            if (selectedIndex2 >= 0) {
+                main.showTaskPage(
+                        taskTableView.getItems().get(selectedIndex2),
+                        dialStage,
+                        "/users/" + user.getId() + "/categories/" +
+                                categoryTableView.getItems().get(selectedIndex).getId() + "/tasks/" +
+                                taskTableView.getItems().get(selectedIndex2).getId(),
+                        "PUT");
+                TaskAPI taskAPI = new TaskAPI();
+                this.setTasks(taskAPI.getTasksByUserAndCategory(
+                        "/users/" + user.getId() + "/categories/" +
+                                categoryTableView.getItems().get(selectedIndex).getId() + "/tasks"));
+                this.showTasksData();
+            }
+            else { AlertsUtil.showNotSelectedTask(dialStage); }
+        }
+        else { AlertsUtil.showNotSelectedCategory(dialStage); }
     }
 
     @FXML
@@ -119,7 +152,7 @@ public class TodoController {
         int selectedIndex = categoryTableView.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
             TaskAPI taskAPI = new TaskAPI();
-            this.setTasks(taskAPI.getTasksByUserAndCategory("/users/" + user.getId() + "/category/" +
+            this.setTasks(taskAPI.getTasksByUserAndCategory("/users/" + user.getId() + "/categories/" +
                     categoryTableView.getItems().get(selectedIndex).getId() + "/tasks"));
             this.showTasksData();
         }

@@ -127,7 +127,7 @@ public class Main extends Application {
     }
 
     @FXML
-    public void showTaskPage(Task task, Stage stage) {
+    public void showTaskPage(Task task, Stage stage, String url, String method) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("views/Task.fxml"));
@@ -140,6 +140,9 @@ public class Main extends Application {
             dialStage.setScene(scene);
             TaskController controller = loader.getController();
             controller.setDialStage(dialStage);
+            controller.setTask(task);
+            controller.setMethod(method);
+            controller.setUrl(url);
             dialStage.showAndWait();
         } catch (IOException e) { e.printStackTrace(); }
     }

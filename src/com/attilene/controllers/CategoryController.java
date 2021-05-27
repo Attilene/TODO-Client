@@ -21,11 +21,12 @@ public class CategoryController {
     private void handleCreateAndUpdate() {
         if (categoryNameField.getText() != null) {
             CategoryAPI categoryAPI = new CategoryAPI();
-            String response = categoryAPI.addCategory(
+            String response = categoryAPI.addAndUpdateCategory(
                     new Category(categoryNameField.getText()), url, method);
             if (response == null || response.equals("500"))
                 AlertsUtil.showInternalServerErrorAlert(dialStage);
-            dialStage.close();
+            else
+                dialStage.close();
         } else
             AlertsUtil.showInputValidAlert(dialStage, "Пустая строка имени категории!");
     }
